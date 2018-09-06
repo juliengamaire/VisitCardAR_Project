@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\Innov&apos;LAB\.android\build-cache\6004b6ec9ed8eb5b35a5a2a04c607677ae65cf58\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="e29373b760f2999cd878625efe4641edd156a3d0">
+        <dex dex="C:\Users\Innov&apos;LAB\Documents\JGAMAIRE\Projets\VisitCardAR\Output\VisitCardAR\build\intermediates\pre-dexed\debug\classes_ec73a23c6790fcba494436e1453e0b450dca7353.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Innov&apos;LAB\.android\build-cache\6004b6ec9ed8eb5b35a5a2a04c607677ae65cf58\output\jars\libs\Vuforia.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="6051ae41196664b2d1144cd0f1e5626d09390520">
+        <dex dex="C:\Users\Innov&apos;LAB\Documents\JGAMAIRE\Projets\VisitCardAR\Output\VisitCardAR\build\intermediates\pre-dexed\debug\Vuforia_3998a70eb10149596d60b65591ba31364791d868.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Innov&apos;LAB\.android\build-cache\6004b6ec9ed8eb5b35a5a2a04c607677ae65cf58\output\jars\libs\VuforiaUnityPlayer.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="1e5c98f1d2f1973f9a08b7849f319bcb135fe8c3">
+        <dex dex="C:\Users\Innov&apos;LAB\Documents\JGAMAIRE\Projets\VisitCardAR\Output\VisitCardAR\build\intermediates\pre-dexed\debug\VuforiaUnityPlayer_bd4f51dc1fa1182b7dfb13a57efbb0bc653b7957.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Innov&apos;LAB\Documents\JGAMAIRE\Projets\VisitCardAR\Output\VisitCardAR\libs\unity-classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="2d302418aa3482b8db770278260340aed47dd37a">
+        <dex dex="C:\Users\Innov&apos;LAB\Documents\JGAMAIRE\Projets\VisitCardAR\Output\VisitCardAR\build\intermediates\pre-dexed\debug\unity-classes_cb602f11cc321261860f912c62d50eb9ba08eb4f.jar" />
+    </item>
+
+</items>
