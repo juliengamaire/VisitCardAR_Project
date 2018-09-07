@@ -17,6 +17,7 @@ public class ViewClass : MonoBehaviour, ITrackableEventHandler {
     public Animator myBalloonMailAnim;
     public Animator myBalloonLinkedinAnim;
     public Animator myBalloonPhoneAnim;
+    public Animator myPlanButtonAnim;
 
     public string myURLLinkedin = "https://www.linkedin.com/in/juliengamaire/";
 	public string myTelNumber = "0665256929";
@@ -66,17 +67,19 @@ public class ViewClass : MonoBehaviour, ITrackableEventHandler {
             //}
         }
     }
-    
+
     public void OnClickMap() {
     	myVideo.SetActive(false);
+    	myPointer.SetActive(true);
 
 		if(myMap.activeSelf) {
+			myPlanButtonAnim.Rebind();
+			myAnimPointer.Rebind();
 			myMap.SetActive(false);
 			startMode.SetActive(true);
-			myAnimPointer.Rebind();
-			myAnimPointer.Play("AddressStill2");
 		}
 		else {
+			myPlanButtonAnim.Play("AnimPlanButton");
 			myMap.SetActive(true);
 			startMode.SetActive(false);
 			myAnimPointer.Play("AnimAdresse");

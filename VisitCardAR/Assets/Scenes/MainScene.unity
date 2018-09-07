@@ -887,7 +887,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.7917844, y: -0.46347058}
+  m_AnchoredPosition: {x: 0.7917844, y: -0.46347046}
   m_SizeDelta: {x: 3, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!64 &538422269
@@ -1450,7 +1450,7 @@ Animator:
   m_GameObject: {fileID: 893068155}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 323a2dd8e35c32241b9912d9f890df07, type: 2}
+  m_Controller: {fileID: 9100000, guid: bcec1c7e601efe54eba382b8c0b142de, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2845,6 +2845,7 @@ MonoBehaviour:
   myBalloonMailAnim: {fileID: 904828679}
   myBalloonLinkedinAnim: {fileID: 479940218}
   myBalloonPhoneAnim: {fileID: 1631962381}
+  myPlanButtonAnim: {fileID: 893068160}
   myURLLinkedin: https://www.linkedin.com/in/juliengamaire/
   myTelNumber: 0665256929
   myEmail: 
