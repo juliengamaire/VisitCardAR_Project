@@ -3,13 +3,21 @@ using Vuforia;
 
 public class OnTargetAquired : MonoBehaviour, ITrackableEventHandler
 {
+    ///*** PUBLIC FIELD ***///
+
+    [Header("Logo section")]
+    public Animator myLogoAnim;
+
+    [Header("Balloon section")]
+    public Animator myBalloonMailAnim;
+    public Animator myBalloonLinkedinAnim;
+    public Animator myBalloonPhoneAnim;
+
+
+    ///*** PRIVATE FIELD ***///
+
     private TrackableBehaviour mTrackableBehaviour;
     private bool isAnimStarted = false;
-
-    public Animator myLogoAnim;
-    public Animator myBalloon1Anim;
-    public Animator myBalloon2Anim;
-    public Animator myBalloon3Anim;
  
     void Start()
     {
@@ -18,11 +26,12 @@ public class OnTargetAquired : MonoBehaviour, ITrackableEventHandler
         {
             mTrackableBehaviour.RegisterTrackableEventHandler(this);
         }
-
+        /*
         myLogoAnim.enabled = false;
-        myBalloon1Anim.enabled = false;
-        myBalloon2Anim.enabled = false;
-        myBalloon3Anim.enabled = false;
+        myBalloonMailAnim.enabled = false;
+        myBalloonLinkedinAnim.enabled = false;
+        myBalloonPhoneAnim.enabled = false;
+        */
     }
      
     public void OnTrackableStateChanged(
@@ -36,14 +45,14 @@ public class OnTargetAquired : MonoBehaviour, ITrackableEventHandler
             if(!isAnimStarted)
             {
                 isAnimStarted = true;
-                myLogoAnim.enabled = true;
+                //myLogoAnim.enabled = true;
                 myLogoAnim.Play("AnimLogoTrans"); 
-                myBalloon1Anim.enabled = true;
-                myBalloon1Anim.Play("AnimBalloonMail"); 
-                myBalloon2Anim.enabled = true;
-                myBalloon2Anim.Play("AnimBalloonLinkedin"); 
-                myBalloon3Anim.enabled = true;
-                myBalloon3Anim.Play("AnimBalloonPhone"); 
+                //myBalloonMailAnim.enabled = true;
+                myBalloonMailAnim.Play("AnimBalloonMail"); 
+                //myBalloonLinkedinAnim.enabled = true;
+                myBalloonLinkedinAnim.Play("AnimBalloonLinkedin"); 
+                //myBalloonPhoneAnim.enabled = true;
+                myBalloonPhoneAnim.Play("AnimBalloonPhone"); 
                 
 
             }
