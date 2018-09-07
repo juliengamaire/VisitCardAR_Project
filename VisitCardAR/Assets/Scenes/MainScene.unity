@@ -2661,8 +2661,12 @@ MonoBehaviour:
   myMap: {fileID: 1143939147}
   myVideo: {fileID: 1263184354}
   myPointer: {fileID: 1705479840}
-  myAnimPointer: {fileID: 1705479842}
   startMode: {fileID: 2123890119}
+  myAnimPointer: {fileID: 1705479842}
+  myLogoAnim: {fileID: 211592893}
+  myBalloonMailAnim: {fileID: 904828679}
+  myBalloonLinkedinAnim: {fileID: 479940218}
+  myBalloonPhoneAnim: {fileID: 1631962381}
 --- !u!1 &1515094982
 GameObject:
   m_ObjectHideFlags: 0

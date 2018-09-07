@@ -1,43 +1,77 @@
 using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ViewClass : MonoBehaviour {
+using Vuforia;
+
+public class ViewClass : MonoBehaviour, ITrackableEventHandler {
 	public GameObject myMap;
-	//public GameObject myButtonMap;
 	public GameObject myVideo;
-	//public GameObject myButtonVideo;
 	public GameObject myPointer;
-	//public GameObject myPortrait;
+	public GameObject startMode;
 
     public Animator myAnimPointer;
+    public Animator myLogoAnim;
+    public Animator myBalloonMailAnim;
+    public Animator myBalloonLinkedinAnim;
+    public Animator myBalloonPhoneAnim;
 
-    public GameObject startMode;
-
-    //private bool isVideoOn = false;
-	//private bool isMapOn = false;
-
+    // Contains the currently set auto focus mode.
+    private CameraDevice.FocusMode mFocusMode;
+    private TrackableBehaviour mTrackableBehaviour;
 
     public void start () {
+    	Screen.orientation = ScreenOrientation.LandscapeLeft;
+        print(mFocusMode);
+        InvokeRepeating("DoFocus", 2.0f, 2.0f);
 
+        mTrackableBehaviour = GetComponent<TrackableBehaviour>();
+        if (mTrackableBehaviour)
+            mTrackableBehaviour.RegisterTrackableEventHandler(this);
     }
 
+    //Configure the focus mode of the camera
+    void DoFocus() 
+    {
+        if (CameraDevice.Instance.SetFocusMode(CameraDevice.FocusMode.FOCUS_MODE_TRIGGERAUTO))
+            mFocusMode = CameraDevice.FocusMode.FOCUS_MODE_TRIGGERAUTO;
+    }
+
+    public void OnTrackableStateChanged(TrackableBehaviour.Status previousStatus, TrackableBehaviour.Status newStatus)
+    {
+        if (newStatus == TrackableBehaviour.Status.DETECTED ||
+            newStatus == TrackableBehaviour.Status.TRACKED ||
+            newStatus == TrackableBehaviour.Status.EXTENDED_TRACKED && !myLogoAnim.isActiveAndEnabled)
+        {
+            //if(!isAnimStarted)
+            //{
+                //isAnimStarted = true;
+                myLogoAnim.enabled = true;
+                myLogoAnim.Play("AnimLogoTrans"); 
+                //myBalloonMailAnim.enabled = true;
+                myBalloonMailAnim.Play("AnimBalloonMail"); 
+                myBalloonLinkedinAnim.enabled = true;
+                myBalloonLinkedinAnim.Play("AnimBalloonLinkedin"); 
+                myBalloonPhoneAnim.enabled = true;
+                myBalloonPhoneAnim.Play("AnimBalloonPhone"); 
+                
+
+            //}
+        }
+    }
 
     public void OnClickMap() {
     	myVideo.SetActive(false);
 
 		if(myMap.activeSelf) {
-			//isMapOn = false;
-
 			myMap.SetActive(false);
 			startMode.SetActive(true);
 			myAnimPointer.Rebind();
 			myAnimPointer.Play("AddressStill2");
 		}
 		else {
-			//isMapOn = true;
-
 			myMap.SetActive(true);
 			startMode.SetActive(false);
 			myAnimPointer.Play("AnimAdresse");
@@ -49,15 +83,11 @@ public class ViewClass : MonoBehaviour {
     	myMap.SetActive(false);
 
 		if(myVideo.activeSelf) {
-			//isVideoOn = false;
-
 			myVideo.SetActive(false);
 			startMode.SetActive(true);
 			myPointer.SetActive(true);
 		}
 		else {
-			//isVideoOn = true;
-
 			myVideo.SetActive(true);
 			startMode.SetActive(false);
 			myPointer.SetActive(false);
