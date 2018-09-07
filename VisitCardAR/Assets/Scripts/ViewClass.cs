@@ -15,8 +15,8 @@ public class ViewClass : MonoBehaviour {
 
     public GameObject startMode;
 
-    private bool isVideoOn = false;
-	private bool isMapOn = false;
+    //private bool isVideoOn = false;
+	//private bool isMapOn = false;
 
 
     public void start () {
@@ -27,8 +27,8 @@ public class ViewClass : MonoBehaviour {
     public void OnClickMap() {
     	myVideo.SetActive(false);
 
-		if(isMapOn) {
-			isMapOn = false;
+		if(myMap.activeSelf) {
+			//isMapOn = false;
 
 			myMap.SetActive(false);
 			startMode.SetActive(true);
@@ -36,7 +36,7 @@ public class ViewClass : MonoBehaviour {
 			myAnimPointer.Play("AddressStill2");
 		}
 		else {
-			isMapOn = true;
+			//isMapOn = true;
 
 			myMap.SetActive(true);
 			startMode.SetActive(false);
@@ -48,15 +48,15 @@ public class ViewClass : MonoBehaviour {
     public void OnClickVideo() {
     	myMap.SetActive(false);
 
-		if(isVideoOn) {
-			isVideoOn = false;
+		if(myVideo.activeSelf) {
+			//isVideoOn = false;
 
 			myVideo.SetActive(false);
 			startMode.SetActive(true);
 			myPointer.SetActive(true);
 		}
 		else {
-			isVideoOn = true;
+			//isVideoOn = true;
 
 			myVideo.SetActive(true);
 			startMode.SetActive(false);

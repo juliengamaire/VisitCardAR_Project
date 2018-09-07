@@ -1701,8 +1701,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Click
+      - m_Target: {fileID: 1515094987}
+        m_MethodName: OnClickAR
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2480,8 +2480,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Click
+      - m_Target: {fileID: 1515094987}
+        m_MethodName: OnCLickQuit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2661,7 +2661,7 @@ MonoBehaviour:
   myMap: {fileID: 1143939147}
   myVideo: {fileID: 1263184354}
   myPointer: {fileID: 1705479840}
-  myAnimPointer: {fileID: 0}
+  myAnimPointer: {fileID: 1705479842}
   startMode: {fileID: 2123890119}
 --- !u!1 &1515094982
 GameObject:
@@ -2674,6 +2674,7 @@ GameObject:
   - component: {fileID: 1515094986}
   - component: {fileID: 1515094985}
   - component: {fileID: 1515094984}
+  - component: {fileID: 1515094987}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -2758,6 +2759,20 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1515094987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1515094982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8508c67cc369e874eaa903cfe8658940, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myButtonText: {fileID: 563354752}
+  myImageTarget: {fileID: 1386467677}
+  myLogoAnim: {fileID: 211592893}
 --- !u!1 &1567403723
 GameObject:
   m_ObjectHideFlags: 0
