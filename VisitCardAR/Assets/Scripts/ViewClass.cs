@@ -18,6 +18,11 @@ public class ViewClass : MonoBehaviour, ITrackableEventHandler {
     public Animator myBalloonLinkedinAnim;
     public Animator myBalloonPhoneAnim;
 
+    public string myURLLinkedin = "https://www.linkedin.com/in/juliengamaire/";
+	public string myTelNumber = "0665256929";
+	public string myEmail = "";
+	public string myEmailSubject = "";
+
     // Contains the currently set auto focus mode.
     private CameraDevice.FocusMode mFocusMode;
     private TrackableBehaviour mTrackableBehaviour;
@@ -62,6 +67,80 @@ public class ViewClass : MonoBehaviour, ITrackableEventHandler {
         }
     }
 
+    void OnTriggerEnter(Collider col)
+	{
+		Debug.Log("ViewClass : Enter in OnTriggerEnter");
+		//If the player touches this object
+		if(col.name == "logoAssystem3D")
+		{
+			Debug.Log("ViewClass : Enter in OnClickLogo");
+    		Application.OpenURL("https://www.assystemtechnologies.com/");
+		}
+	}
+
+    void Update()
+	{
+		if( Input.GetMouseButtonDown(0) )
+		{
+			Ray ray = Camera.main.ScreenPointToRay( Input.mousePosition );
+			RaycastHit hit;
+
+			if( Physics.Raycast( ray, out hit, 100 ) )
+			{
+				Debug.Log( hit.transform.gameObject.name );
+			if (hit.transform.gameObject.name == "logoAssystem3D") 
+				{
+					Application.OpenURL("https://www.assystemtechnologies.com/");
+				}
+				else if (hit.transform.gameObject.name == "BalloonLinkedin") 
+				{
+					Application.OpenURL(myURLLinkedin);
+				}
+				else if (hit.transform.gameObject.name == "BalloonPhone") 
+				{
+					Application.OpenURL("tel://" + myTelNumber);
+				}
+				else if (hit.transform.gameObject.name == "BalloonMail") 
+				{
+		  			Application.OpenURL("mailto:" + myEmail + "?subject=" + myEmailSubject);
+				}
+				else if (hit.transform.gameObject.name == "ButtonVideo" || hit.transform.gameObject.name == "PlaneButtonVideo") 
+				{
+					Debug.Log("ViewClass : Enter in OnClickVideo");
+			    	myMap.SetActive(false);
+
+					if(myVideo.activeSelf) {
+						myVideo.SetActive(false);
+						startMode.SetActive(true);
+						myPointer.SetActive(true);
+					}
+					else {
+						myVideo.SetActive(true);
+						startMode.SetActive(false);
+						myPointer.SetActive(false);
+					}    		
+				}
+				else if (hit.transform.gameObject.name == "Pointer" || hit.transform.gameObject.name == "ButtonMap" || hit.transform.gameObject.name == "PlaneButtonMap") 
+				{
+					myVideo.SetActive(false);
+					myPointer.SetActive(true);
+
+					if(myMap.activeSelf) {
+						myMap.SetActive(false);
+						startMode.SetActive(true);
+						myAnimPointer.Rebind();
+						myAnimPointer.Play("AddressStill2");
+					}
+					else {
+						myMap.SetActive(true);
+						startMode.SetActive(false);
+						myAnimPointer.Play("AnimAdresse");
+					}
+				}
+			}
+		}
+	}
+
     public void OnClickMap() {
     	myVideo.SetActive(false);
 
@@ -80,6 +159,7 @@ public class ViewClass : MonoBehaviour, ITrackableEventHandler {
 
 
     public void OnClickVideo() {
+    	Debug.Log("ViewClass : Enter in OnClickVideo");
     	myMap.SetActive(false);
 
 		if(myVideo.activeSelf) {
@@ -92,6 +172,24 @@ public class ViewClass : MonoBehaviour, ITrackableEventHandler {
 			startMode.SetActive(false);
 			myPointer.SetActive(false);
 		}    	
+    }
+
+    public void OnClickLogo() {
+    	Debug.Log("ViewClass : Enter in OnClickLogo");
+    	Application.OpenURL("https://www.assystemtechnologies.com/");
+    }
+
+    public void OnClickLinkedin() {
+    	Debug.Log("ViewClass : Enter in OnClickLinkedin : " + myURLLinkedin);
+    	Application.OpenURL(myURLLinkedin);
+    }
+
+    public void OnClickTel() {
+    	Application.OpenURL("tel://" + myTelNumber);
+    }
+
+    public void OnClickMail() {
+    	Application.OpenURL("mailto:" + myEmail + "?subject=" + myEmailSubject);
     }
 
 }
